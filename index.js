@@ -4,7 +4,7 @@ const cors = require("cors");
 const port = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors()); // Allow all origins (not recommended for production)
+app.use(cors());
 
 // Parse JSON bodies
 app.use(express.json());
@@ -35,6 +35,7 @@ async function run() {
 
     app.post("/login", async (req, res) => {
       const data = req.body;
+      console.log(data);
       const result = await loginUserCollection.insertOne(data);
       res.send(result);
     });
